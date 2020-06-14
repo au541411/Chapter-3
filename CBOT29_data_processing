@@ -274,10 +274,62 @@ hmmsearch --tblout cbot_29_hmm_essential.txt --cut_tc --notextw essential.hmm pr
 #using barnnap (basic rapid ribosomal RNA predictor)
 barrnap cbot_29_assembly_raconNP_medaka2x_raconILM.fa --reject 0.3 --kingdom bac -outseq cbot_29_rRNA.fasta
 
-
 #deleting everything after whitespace in fasta header for the assembly
 cut -f1 -d " " cbot_assembly_raconNP_medaka2x_raconILM.fa > cbot_29_assembly_mmgenome.fa
 
 #making sure that the contigs have the same name as in the assembly file. Further taking care to only take contig name and gene ID into mmgenome2
 cut -c 1-29,43-65 cbot_29_hmm_essential.txt > cbot_29_hmm_essential_cut.txt
 
+# Now we want to assign toxonomy in R using DADA2
+cbot_29 <- read.fasta(file ="cbot_29_rRNA.fasta", as.string =TRUE, whole.header = TRUE, forceDNAtolower= FALSE)
+
+sequences = unlist(getSequence(cbot_29, as.string = TRUE))
+
+annotations = getAnnot(cbot_29)
+
+cbot_29_taxa <- assignTaxonomy(sequences, "silva_nr_v132_train_set.fa.gz", multithread = 12)
+
+write.csv(cbot_29_taxa,"cbot_29_taxa.csv",sep=" ")
+
+cbot_29_taxa <- read_csv("cbot_29_taxa.csv", col_names = TRUE)
+
+df <- data.frame(matrix(unlist(annotations), nrow=length(annotations), byrow=T))
+
+names(df)[names(df) == "matrix.unlist.annotations...nrow...length.annotations...byrow...T."] <- "Scaffold_name"
+
+cbot_29_taxa[["X1"]] <- df$Scaffold_name
+
+names(cbot_29_taxa)[names(cbot_29_taxa) == "X1"] <- "Scaffold_name"
+
+write.csv(cbot_29_taxa,"cbot_29_taxa.csv",sep=" ", row.names = FALSE)
+#take your taxonfile to your terminal to do the awk command
+#taking the correct names out of the taxonomy file, so I can substitute them in R in the original file
+awk -F '[:]' '{print $3}' cbot_29_taxa.csv > cbot_29_taxon_names.csv
+#Reload the new file into R
+cbot_29_taxa <- read_csv("cbot_29_taxa.csv", col_names = TRUE)
+
+cbot_29_taxon_names <- read_csv("cbot_29_taxon_names.csv", col_names = FALSE)
+
+cbot_29_taxa[["Scaffold_name"]] <- cbot_29_taxon_names$X1
+
+cbot_29_mmgenome2_taxon <- cbot_29_taxa %>% distinct(Scaffold_name, .keep_all = TRUE)
+
+write_csv(cbot_29_mmgenome2_taxon,"cbot_29_mmgenome2_taxon.csv", col_names = TRUE)
+
+#loading and assembling the mmgenome2 file with mmload
+
+cbot_29_mmgenome2_taxon <- read_csv("cbot_29_mmgenome2_taxon.csv", col_names = TRUE)
+
+cov <- read.delim("cbot_29_depth.txt", header = TRUE, sep = "\t", dec = ".", comment.char ="")[,c("contigName","totalAvgDepth")]
+
+essential_genes <- read.delim("cbot_29_hmm_essential_cut.txt", header = FALSE, sep = "", comment.char = "#")
+names(essential_genes)[names(essential_genes) == "V1"] <- "Scaffold name"
+names(essential_genes)[names(essential_genes) == "V2"] <- "gene ID"
+
+cbot_29_assembly <- mmload(assembly = "cbot_29_assembly_mmgenome.fa", coverage = cov, essential_genes = essential_genes, taxonomy = cbot_29_mmgenome2_taxon, verbose = TRUE, kmer_pca = TRUE, kmer_BH_tSNE = TRUE)
+
+#get stats about assembly
+mmstats(cbot_29_assembly)
+
+#plot assembly
+mmplot(cbot_29_assembly, x = "gc", y = "cov_totalAvgDepth", color_by = "Genus",  locator = TRUE)
