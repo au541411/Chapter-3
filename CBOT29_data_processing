@@ -1,0 +1,283 @@
+#input is a folder "fastq_pass" containing 153 fastq files#
+#trimming of adapters#
+
+porechop -i fastq_pass/ -o cbot_29_1_trimmed.fastq --threads 10
+
+
+#output#
+605,272 reads loaded
+
+
+Looking for known adapter sets
+10,032 / 10,032 (100.0%)
+                                        Best               
+                                        read       Best    
+                                        start      read end
+  Set                                   %ID        %ID     
+  SQK-NSK007                               100.0       82.6
+  Rapid                                     66.7        0.0
+  RBK004_upstream                           81.6        0.0
+  SQK-MAP006                                80.0       79.2
+  SQK-MAP006 short                          74.1       95.8
+  PCR adapters 1                            78.3       78.3
+  PCR adapters 2                            80.0       79.2
+  PCR adapters 3                            79.2       78.3
+  1D^2 part 1                               75.9       75.0
+  1D^2 part 2                               93.9       83.3
+  cDNA SSP                                  74.4       71.1
+  Barcode 1 (reverse)                       80.0       83.3
+  Barcode 2 (reverse)                       76.9       79.2
+  Barcode 3 (reverse)                       76.0       79.2
+  Barcode 4 (reverse)                       80.0       76.9
+  Barcode 5 (reverse)                       79.2       79.2
+  Barcode 6 (reverse)                       76.9       79.2
+  Barcode 7 (reverse)                       75.0       75.0
+  Barcode 8 (reverse)                       76.9       78.6
+  Barcode 9 (reverse)                       76.9       77.8
+  Barcode 10 (reverse)                      77.8       79.2
+  Barcode 11 (reverse)                      76.0       77.8
+  Barcode 12 (reverse)                      79.2       79.2
+  Barcode 1 (forward)                       76.9       80.0
+  Barcode 2 (forward)                       79.2       83.3
+  Barcode 3 (forward)                       76.0       76.0
+  Barcode 4 (forward)                       80.8       77.8
+  Barcode 5 (forward)                       79.2       79.3
+  Barcode 6 (forward)                       79.2       76.9
+  Barcode 7 (forward)                       75.0       76.9
+  Barcode 8 (forward)                       80.0       79.2
+  Barcode 9 (forward)                       75.0       79.2
+  Barcode 10 (forward)                      76.0       76.0
+  Barcode 11 (forward)                      77.8       78.6
+  Barcode 12 (forward)                      76.0       79.2
+  Barcode 13 (forward)                      79.2       76.0
+  Barcode 14 (forward)                      75.0       76.9
+  Barcode 15 (forward)                      79.2       76.0
+  Barcode 16 (forward)                      79.2       79.2
+  Barcode 17 (forward)                      76.9       76.9
+  Barcode 18 (forward)                      80.0       77.8
+  Barcode 19 (forward)                      79.2       79.2
+  Barcode 20 (forward)                      81.5       76.0
+  Barcode 21 (forward)                      77.8       80.0
+  Barcode 22 (forward)                      76.0       79.2
+  Barcode 23 (forward)                      76.0       75.0
+  Barcode 24 (forward)                      79.2       79.2
+  Barcode 25 (forward)                      84.6       75.0
+  Barcode 26 (forward)                      83.3       80.0
+  Barcode 27 (forward)                      77.8       79.2
+  Barcode 28 (forward)                      78.6       75.0
+  Barcode 29 (forward)                      79.2       76.0
+  Barcode 30 (forward)                      77.8       76.0
+  Barcode 31 (forward)                      84.0       76.9
+  Barcode 32 (forward)                      79.2       80.0
+  Barcode 33 (forward)                      79.2       76.9
+  Barcode 34 (forward)                      80.0       76.9
+  Barcode 35 (forward)                      76.9       79.2
+  Barcode 36 (forward)                      80.0       76.0
+  Barcode 37 (forward)                      76.9       79.2
+  Barcode 38 (forward)                      79.2       76.0
+  Barcode 39 (forward)                      84.0       76.9
+  Barcode 40 (forward)                      79.2       76.0
+  Barcode 41 (forward)                      76.9       76.0
+  Barcode 42 (forward)                      79.2       76.9
+  Barcode 43 (forward)                      76.9       79.2
+  Barcode 44 (forward)                      79.2       76.9
+  Barcode 45 (forward)                      79.2       79.2
+  Barcode 46 (forward)                      80.8       80.0
+  Barcode 47 (forward)                      80.8       76.9
+  Barcode 48 (forward)                      76.0       76.9
+  Barcode 49 (forward)                      76.9       80.0
+  Barcode 50 (forward)                      76.9       77.8
+  Barcode 51 (forward)                      78.6       76.9
+  Barcode 52 (forward)                      80.0       79.2
+  Barcode 53 (forward)                      76.9       77.8
+  Barcode 54 (forward)                      80.8       79.2
+  Barcode 55 (forward)                      79.2       79.2
+  Barcode 56 (forward)                      76.9       79.2
+  Barcode 57 (forward)                      76.9       75.0
+  Barcode 58 (forward)                      76.9       79.2
+  Barcode 59 (forward)                      76.0       79.2
+  Barcode 60 (forward)                      79.2       77.8
+  Barcode 61 (forward)                      78.6       75.0
+  Barcode 62 (forward)                      78.6       76.0
+  Barcode 63 (forward)                      76.9       77.8
+  Barcode 64 (forward)                      80.8       77.8
+  Barcode 65 (forward)                      77.8       80.8
+  Barcode 66 (forward)                      76.0       76.0
+  Barcode 67 (forward)                      76.0       76.0
+  Barcode 68 (forward)                      76.0       80.0
+  Barcode 69 (forward)                      79.2       76.9
+  Barcode 70 (forward)                      76.9       75.0
+  Barcode 71 (forward)                      76.9       76.0
+  Barcode 72 (forward)                      83.3       76.0
+  Barcode 73 (forward)                      75.0       80.0
+  Barcode 74 (forward)                      75.0       76.9
+  Barcode 75 (forward)                      78.6       81.5
+  Barcode 76 (forward)                      76.0       79.2
+  Barcode 77 (forward)                      79.2       79.2
+  Barcode 78 (forward)                      76.0       79.2
+  Barcode 79 (forward)                      76.9       80.8
+  Barcode 80 (forward)                      76.0       76.0
+  Barcode 81 (forward)                      77.8       76.0
+  Barcode 82 (forward)                      79.2       76.0
+  Barcode 83 (forward)                      76.9       79.2
+  Barcode 84 (forward)                      76.0       76.0
+  Barcode 85 (forward)                      76.0       76.0
+  Barcode 86 (forward)                      76.9       83.3
+  Barcode 87 (forward)                      80.0       78.6
+  Barcode 88 (forward)                      77.8       79.2
+  Barcode 89 (forward)                      77.8       80.0
+  Barcode 90 (forward)                      75.0       76.9
+  Barcode 91 (forward)                      76.0       80.0
+  Barcode 92 (forward)                      80.0       79.2
+  Barcode 93 (forward)                      76.9       80.0
+  Barcode 94 (forward)                      76.0       83.3
+  Barcode 95 (forward)                      79.2       79.2
+  Barcode 96 (forward)                      79.2       76.9
+
+
+Trimming adapters from read ends
+                SQK-NSK007_Y_Top: AATGTACTTCGTTCAGTTACGTATTGCT
+             SQK-NSK007_Y_Bottom: GCAATACGTAACTGAACGAAGT
+     SQK-MAP006_Short_Y_Top_LI32: CGGCGTCTGCTTGGGTGTTTAACCT
+  SQK-MAP006_Short_Y_Bottom_LI33: GGTTAAACACCCAAGCAGACGCCG
+                1D2_part_2_start: CTTCGTTCAGTTACGTATTGCTGGCGTCTGCTT
+                  1D2_part_2_end: CACCCAAGCAGACGCCAGCAATACGTAACT
+
+605,272 / 605,272 (100.0%)
+
+300,318 / 605,272 reads had adapters trimmed from their start (8,224,820 bp removed)
+232,092 / 605,272 reads had adapters trimmed from their end (3,303,775 bp removed)
+
+Splitting reads containing middle adapters
+605,272 / 605,272 (100.0%)
+
+6 / 605,272 reads were split based on middle adapters
+
+Saving trimmed reads to file
+
+#the file will be named cbot_29_1_trimmed.fastq#
+#get stats about reads
+pauvre marginplot --fastq cbot_29_1_trimmed.fastq --plot_minqual 5
+
+# Fastq stats for cbot_29_1_trimmed.fastq, reads >= 0bp
+numReads: 605245
+%totalNumReads: 100.00
+numBasepairs: 1644309145
+%totalBasepairs: 100.00
+meanLen: 2716.766177333146
+medianLen: 812.0
+minLen: 10
+maxLen: 115596
+N50: 11805
+L50: 36325
+
+# the we use filtlong
+
+filtlong --min_length 1000 --keep_percent 90 --target_bases 2000000000 cbot_29_1_trimmed.fastq | gzip > cbot_29_1_filtered.fastq.gz
+
+#output#
+
+Scoring long reads
+  605,245 reads (1,644,309,145 bp)
+
+Filtering long reads
+  target: 1,479,878,230 bp
+  reads already fall below target after filtering
+
+Outputting passed long reads
+
+#using pauvre to check stats#
+
+pauvre marginplot --fastq cbot_29_1_filtered.fastq.gz --plot_minqual 5
+
+# Fastq stats for cbot_29_1_filtered.fastq.gz, reads >= 1000bp
+numReads: 255562
+%totalNumReads: 100.00
+numBasepairs: 1464144927
+%totalBasepairs: 100.00
+meanLen: 5729.118284408481
+medianLen: 2245.0
+minLen: 1000
+maxLen: 115596
+N50: 14382
+L50: 29417
+
+
+#assembly with canu#
+screen -L canu -p cbot_29_1_contigs -d canu_assembly/ genomeSize=5m -nanopore-raw cbot_29_1_filtered.fastq.gz hapThreads=11 maxMemory=31 batMemory=31 batThreads=10
+corMinCoverage=0 corOutCoverage=all corMhapSensitivity=high correctedErrorRate=0.105 corMaxEvidenceCoverageLocal=10 corMaxEvidenceCoverageGlobal=10
+
+
+#First I use minimap2 to map all nanopore reads to assembly. I need to use the contigs.fasta file from the canu assembly and the filtered and trimmed reads, which is a fastq file.#
+
+minimap2 –map-ont cbot_29_1_contigs.contigs.fasta cbot_29_1_filtered.fastq.gz > assembly_cbot_29_minimap.paf
+
+#Now it is time to polish with racon and nanopore data#
+
+racon cbot_29_1_filtered.fastq.gz assembly_cbot_29_minimap.paf cbot_29_1_contigs.contigs.fasta > assembly_raconNP_cbot_29.fa -t 10
+
+#Now we need to use medaka#
+
+#To use Medaka you have to open the virtual environment which is done with the terminal command#
+#medaka can run for up to 10 hours so remember to run it in screen#
+
+. ./venv/bin/activate
+
+screen -L medaka_consensus -i cbot_29_1_filtered.fastq.gz -d assembly_raconNP_cbot_29.fa -o results -m r941_min_fast_g303
+
+#now we polish with Medaka a second time#
+
+screen -L medaka_consensus -i cbot_29_1_filtered.fastq.gz -d assembly_raconNP_medaka_cbot_29.fa -o results_2 
+
+#now we need to process the short illumina miseq reads
+#MiSeq quality check and read trimming in FastQC and trimmomatic#
+
+fastqc LJ-MG-1Small_S157_L001_R1_001.fastq.gz LJ-MG-1Small_S157_L001_R2_001.fastq.gz
+
+#When using trimmomatic, remember that the commands are executed in the order they appear. Therefore always start with adapter trimming (ILLUMINACLIP) because this is better done on full adapters.#
+#Afterwards do the crop at the end (CROP) followed by cropping at the start (HEADCROP).# 
+#After Cropping both ends trim according to quality using the SLiDINGWINDOW and finish by specifying the minimum length of sequences to be keept (MINLEN)#
+
+#files which is proccesed: fastqc cbot_31_S1_L001_R1_001.fastq.gz cbot_31_S1_L001_R2_001.fastq.gz#
+
+java -jar /usr/Trimmomatic-0.39/trimmomatic-0.39.jar PE -trimlog cbot_29.txt -phred33 -threads 8 cbot_29_S1_L001_R1_001.fastq.gz cbot_29_S1_L001_R2_001.fastq.gz cbot_29-R1.paired.fastq.gz cbot_29-R1.unpaired.fastq.gz cbot_29-R2.paired.fastq.gz cbot_29-R2.unpaired.fastq.gz ILLUMINACLIP:/usr/Trimmomatic-0.39/adapters/NexteraPE-PE.fa:2:40:15 CROP:260 HEADCROP:20 SLIDINGWINDOW:4:20 MINLEN:100
+
+#Input Read Pairs: 1122130 Both Surviving: 575004 (51.24%) Forward Only Surviving: 400302 (35.67%) Reverse Only Surviving: 25539 (2.28%) Dropped: 121285 (10.81%)
+
+#Run FastQC on the trimmed reads
+fastqc cbot_29-R1.paired.fastq.gz cbot_29-R1.unpaired.fastq.gz cbot_29-R2.paired.fastq.gz cbot_29-R2.unpaired.fastq.gz 
+
+#Mapping unpaired forward reads to nanopore assembly
+minimap2 –x sr assembly_raconNP_medaka2x_cbot_29.fa cbot_29-R1.unpaired.fastq.gz > cbot_29_assembly_minimap_il.paf
+
+#polish using racon and Illumina data#
+racon cbot_29-R1.unpaired.fastq.gz cbot_29_assembly_minimap_il.paf assembly_raconNP_medaka2x_cbot_29.fa > cbot_29_assembly_raconNP_medaka2x_raconILM.fa
+
+#Map longreads to scaffolds to get coverage
+minimap2 –ax map-ont cbot_29_assembly_raconNP_medaka2x_raconILM.fa cbot_29_1_filtered.fastq.gz | samtools view –Sb –F 0x104 - | samtools sort - > cbot_29_NP_map.bam
+
+#Map short forward unpaired reads to scaffolds to get coverage
+minimap2 –ax sr cbot_29_assembly_raconNP_medaka2x_raconILM.fa cbot_29-R1.unpaired.fastq.gz | samtools view –Sb –F 0x104 - | samtools sort - > cbot_29_IL_map.bam
+
+#Creating a coverage -txt file for NP and IL reads to assembly
+jgi_summarize_bam_contig_depths --outputDepth cbot_29_depth.txt *.bam
+
+#Bin contigs using metabat2 with the assembly and coverage file
+metabat2 -i cbot_29_assembly_raconNP_medaka2x_raconILM.fa -a cbot_29_depth.txt -o cbot_29
+
+#run prodigal to predict genes
+prodigal -i cbot_29_assembly_raconNP_medaka2x_raconILM.fa -o prodigal_genes.faa -a prodigal_aa_genes.faa -p meta
+
+#search for essential genes with the HMM file essentials.hmm from Madsalbertsen lab (http://madsalbertsen.github.io/multi-metagenome/docs/step5.html) 
+hmmsearch --tblout cbot_29_hmm_essential.txt --cut_tc --notextw essential.hmm prodigal_aa_genes.faa
+
+#using barnnap (basic rapid ribosomal RNA predictor)
+barrnap cbot_29_assembly_raconNP_medaka2x_raconILM.fa --reject 0.3 --kingdom bac -outseq cbot_29_rRNA.fasta
+
+
+#deleting everything after whitespace in fasta header for the assembly
+cut -f1 -d " " cbot_assembly_raconNP_medaka2x_raconILM.fa > cbot_29_assembly_mmgenome.fa
+
+#making sure that the contigs have the same name as in the assembly file. Further taking care to only take contig name and gene ID into mmgenome2
+cut -c 1-29,43-65 cbot_29_hmm_essential.txt > cbot_29_hmm_essential_cut.txt
+
